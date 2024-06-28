@@ -1,0 +1,14 @@
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+	safecrlf = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = 81542648+shubhattin@users.noreply.github.com
+	name = Shubham Anand Gupta
