@@ -103,8 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source "$HOME/.config/os-config/linux/cli_config.sh"
+source "$HOME/.config/my_config/cli_config.sh"
 # The file below is optional, this is the place where you could define your Environment Variabels
-source "$HOME/.config/os-config/linux/my_env.sh"
+source "$HOME/.config/my_config/my_env.sh"
 
 eval "$(zoxide init --cmd cd zsh)"

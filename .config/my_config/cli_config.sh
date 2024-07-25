@@ -4,7 +4,6 @@ alias ipy=ipython
 alias rm="rm -i"
 
 # Neovim
-# v
 if [ -d /opt/nvim-linux64/bin ]; then
   export PATH="$PATH:/opt/nvim-linux64/bin"
 fi
