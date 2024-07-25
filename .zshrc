@@ -108,3 +108,9 @@ source "$HOME/.config/my_config/cli_config.sh"
 source "$HOME/.config/my_config/my_env.sh"
 
 eval "$(zoxide init --cmd cd zsh)"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+eval "$(atuin init zsh)"
