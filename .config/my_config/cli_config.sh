@@ -2,6 +2,7 @@ alias cls=clear
 alias expl="explorer.exe ."
 alias ipy=ipython
 alias rm="rm -i"
+alias yay=paru
 
 # Neovim
 if [ -d /opt/nvim-linux64/bin ]; then

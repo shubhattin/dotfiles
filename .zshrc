@@ -109,8 +109,8 @@ source "$HOME/.config/my_config/my_env.sh"
 
 eval "$(zoxide init --cmd cd zsh)"
 
-. "$HOME/.atuin/bin/env"
+# . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 
-eval "$(atuin init zsh)"
+#eval "$(atuin init zsh)"
