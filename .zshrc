@@ -30,7 +30,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Keybindings
-bindkey -e
+bindkey -e # emacs bindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
@@ -45,7 +45,7 @@ SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
-setopt hist_ignore_space
+setopt hist_ignore_space  # not saving commands starting with space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
@@ -61,6 +61,12 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias c='clear'
+alias history-cl="rm ~/.zsh_history"  # temporary fix for non functional history -c command
+alias neofetch=fastfetch
+alias ghcs="gh copilot suggest"
+alias ghce="gh copilot explain"
+
+export EDITOR="nvim"
 
 # Shell integrations
 eval "$(fzf --zsh)"
