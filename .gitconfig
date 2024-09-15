@@ -13,3 +13,5 @@
 [user]
 	email = 81542648+shubhattin@users.noreply.github.com
 	name = Shubham Anand Gupta
+[pull]
+	rebase = false
