@@ -75,4 +75,6 @@ eval "$(zoxide init --cmd cd zsh)"
 ## Custom
 source "$HOME/.config/my_config/cli_config.sh"
 # The file below is optional, this is the place where you could define your Environment Variabels
-source "$HOME/.config/my_config/my_env.sh"
+if [ -f "$HOME/.config/my_config/my_env.sh" ]; then
+    source "$HOME/.config/my_config/my_env.sh"
+fi

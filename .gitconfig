@@ -1,7 +1,7 @@
 [init]
 	defaultBranch = main
 [core]
-	autocrlf = input
+	autocrlf = true
 	safecrlf = true
 	editor = nvim
 [credential "https://github.com"]
