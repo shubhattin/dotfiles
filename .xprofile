@@ -1,4 +1,0 @@
-# Check if ibus-daemon exists and start it if it does
-if command -v ibus-daemon &> /dev/null; then
-  ibus-daemon -drx
-fi
