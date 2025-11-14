@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": ["network", "pulseaudio", "bluetooth", "power-profiles-daemon", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -27,7 +27,33 @@
     "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "on-click": "nm-connection-editor"
+  },
+  "power-profiles-daemon": {
+    "format": "<span size='13000' foreground='#fab387'>{icon}</span>",
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    },
+    "tooltip": true,
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "on-click": "powerprofilesctl set performance",
+    "on-click-middle": "powerprofilesctl set balanced",
+    "on-click-right": "powerprofilesctl set power-saver"
+  },
+  "bluetooth": {
+    "format": "<span size='13000' foreground='#89b4fa'></span>",
+    "format-connected": "<span size='13000' foreground='#89b4fa'></span>",
+    "format-connected-battery": "<span size='13000' foreground='#89b4fa'></span>",
+    "format-disabled": "<span size='13000' foreground='#E38C8F'></span>",
+    "tooltip-format": "{controller_alias} ({controller_address})\n{status}",
+    "tooltip-format-connected": "{controller_alias} ({controller_address})\n{num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias} [{device_address}]",
+    "tooltip-format-enumerate-connected-battery": "{device_alias} [{device_address}] {device_battery_percentage}%",
+    "on-click": "blueman-manager"
   },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
