@@ -1,0 +1,66 @@
+{
+  // Fastfetch configuration: show only the requested fields
+  "logo": {
+    "type": "auto",
+    "source": "arch"
+  },
+
+  "display": {
+    // Adjust if you want a different key/value separator
+    "separator": " "
+  },
+
+  "modules": [
+    {
+      "type": "custom",
+      "format": "Arch Linux",
+      "key": "OS"
+    },
+    {
+      "type": "host",
+      "key": "Host"
+    },
+    {
+      "type": "kernel",
+      "key": "Kernel"
+    },
+    {
+      "type": "shell",
+      "key": "Shell"
+    },
+    {
+      "type": "display",
+      "key": "Display"
+    },
+    {
+      "type": "wm",
+      "key": "WM"
+    },
+    {
+      "type": "terminal",
+      "key": "Terminal"
+    },
+    {
+      "type": "cpu",
+      "key": "CPU"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU"
+    },
+    {
+      "type": "physicaldisk",
+      "key": "Disks"
+    },
+    {
+      "type": "memory",
+      "key": "Memory"
+    },
+    {
+      "type": "swap",
+      "key": "Swap"
+    }
+  ]
+}
+
+
