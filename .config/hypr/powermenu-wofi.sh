@@ -27,7 +27,7 @@ case "$choice" in
     systemctl reboot
     ;;
   '󰍃  Logout')
-    hyprctl dispatch exit 0
+    bash -c '~/.config/hypr/safe-exit.sh'
     ;;
   '󰒳  Hibernate')
     systemctl hibernate
