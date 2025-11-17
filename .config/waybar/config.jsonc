@@ -29,7 +29,8 @@
     "return-type": "",
     "restart-interval": 0,
     "tooltip": true,
-    "tooltip-format": "Input Method: {}"
+    "tooltip-format": "Input Method: {}",
+    "on-click": "fcitx5-remote -t || fcitx-remote -t"
   },
   "network": {
     "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
