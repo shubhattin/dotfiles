@@ -59,6 +59,8 @@ button:hover {
 #clock,
 #battery,
 #power-profiles-daemon,
+#idle_inhibitor,
+#custom-fcitx,
 #cpu,
 #memory,
 #disk,
@@ -102,13 +104,19 @@ button:hover {
     border-bottom: 2px solid @yellow;
 }
 
+#custom-fcitx {
+    color: @mauve;
+    border-bottom: 2px solid @mauve;
+}
+
 #idle_inhibitor {
-    margin-right: 12px;
-    color: #7cb342;
+    color: @green;
+    border-bottom: 2px solid @green;
 }
 
 #idle_inhibitor.activated {
     color: @red;
+    border-bottom: 2px solid @red;
 }
 
 #battery {
