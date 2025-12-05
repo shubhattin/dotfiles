@@ -65,6 +65,7 @@ alias history-cl="rm ~/.zsh_history"  # temporary fix for non functional history
 alias neofetch=fastfetch
 alias ghcs="gh copilot suggest"
 alias ghce="gh copilot explain"
+alias lg="lazygit"
 
 export EDITOR="nvim"
 
