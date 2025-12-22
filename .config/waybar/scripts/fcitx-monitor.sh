@@ -5,7 +5,7 @@ get_current_im() {
     # Try fcitx5-remote first
     if command -v fcitx5-remote &> /dev/null; then
         IM=$(fcitx5-remote -n 2>/dev/null)
-    elif command -v fcitx-remote &> /dev/null; then
+        elif command -v fcitx-remote &> /dev/null; then
         IM=$(fcitx-remote -n 2>/dev/null)
     else
         echo "EN"
@@ -16,34 +16,37 @@ get_current_im() {
     case "$IM" in
         *keyboard-us*|*keyboard-en*|*en_US*)
             echo "EN"
-            ;;
+        ;;
         *pinyin*|*chinese*|*zh*)
             echo "ZH"
-            ;;
+        ;;
         *hindi*|*devanagari*|*hi*)
             echo "HI"
-            ;;
+        ;;
         *japanese*|*ja*|*mozc*)
             echo "JA"
-            ;;
-        *korean*|*ko*|*hangul*)
-            echo "KO"
-            ;;
-        *arabic*|*ar*)
-            echo "AR"
-            ;;
-        *russian*|*ru*)
-            echo "RU"
-            ;;
-        *spanish*|*es*)
-            echo "ES"
-            ;;
-        *french*|*fr*)
-            echo "FR"
-            ;;
-        *german*|*de*)
-            echo "DE"
-            ;;
+        ;;
+        *tamil*|*ta*)
+            echo "TA"
+        ;;
+        *telugu*|*te*)
+            echo "TE"
+        ;;
+        *sanskrit*|*sa*)
+            echo "SA"
+        ;;
+        *malayalam*|*ml*)
+            echo "ML"
+        ;;
+        *kannada*|*kn*)
+            echo "KN"
+        ;;
+        *gujarati*|*gu*)
+            echo "GU"
+        ;;
+        *bengali*|*bn*)
+            echo "BN"
+        ;;
         *)
             # Try to extract first 2 chars or show generic
             if [[ ${#IM} -ge 2 ]]; then
@@ -51,7 +54,7 @@ get_current_im() {
             else
                 echo "EN"
             fi
-            ;;
+        ;;
     esac
 }
 

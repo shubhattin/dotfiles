@@ -3,6 +3,7 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
+    "custom/fullscreen",
     "network",
     "custom/fcitx",
     "pulseaudio",
@@ -42,12 +43,26 @@
     "on-click": "fcitx5-remote -t || fcitx-remote -t"
   },
   "network": {
-    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-wifi": "<span size='13000'>{icon}</span>",
+    "format-ethernet": "<span size='13000'>{icon}</span>",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "format-disconnected": "<span size='13000'>{icon}</span>",
+    "format-icons": {
+      "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+      "ethernet": "󰤭",
+      "disconnected": "󰤮"
+    },
+    "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
     "on-click": "kcmshell6 kcm_networkmanagement"
+  },
+  "custom/fullscreen": {
+    "exec": "~/.config/waybar/scripts/fullscreen-indicator.sh",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 1,
+    "tooltip": true
   },
   "power-profiles-daemon": {
     "format": "<span size='13000' foreground='#fab387'>{icon}</span>",
