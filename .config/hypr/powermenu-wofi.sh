@@ -9,33 +9,31 @@
 # - Hibernate
 
 choice="$(printf '%s\n' \
-    '󰒲  Sleep' \
-    '󰐥  Shutdown' \
-    '󰜉  Restart' \
-    '󰍃  Logout' \
-    '󰒳  Hibernate' \
-| wofi --dmenu --cache-file=/dev/null --prompt 'Power menu')"
+  '󰒲  Sleep' \
+  '󰐥  Shutdown' \
+  '󰜉  Restart' \
+  '󰍃  Logout' \
+  '󰒳  Hibernate' \
+  | wofi --dmenu --cache-file=/dev/null --prompt 'Power menu')"
 
 case "$choice" in
-    '󰒲  Sleep')
-        systemctl suspend
+  '󰒲  Sleep')
+    systemctl suspend
     ;;
-    '󰐥  Shutdown')
-        systemctl poweroff
+  '󰐥  Shutdown')
+    systemctl poweroff
     ;;
-    '󰜉  Restart')
-        systemctl reboot
+  '󰜉  Restart')
+    systemctl reboot
     ;;
-    '󰍃  Logout')
-        bash -c '~/.config/hypr/safe-exit.sh'
+  '󰍃  Logout')
+    bash -c '~/.config/hypr/safe-exit.sh'
     ;;
-    '󰒳  Hibernate')
-        systemctl hibernate
+  '󰒳  Hibernate')
+    systemctl hibernate
     ;;
-    *)
-        # Cancelled or closed
-        exit 0
+  *)
+    # Cancelled or closed
+    exit 0
     ;;
 esac
-
-
