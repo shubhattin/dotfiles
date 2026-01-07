@@ -49,7 +49,7 @@ if not vim.g.vscode then
     use("nvim-tree/nvim-web-devicons") -- icons
 
     -- Theming, Visual Tools
-    use("Mofiqul/dracula.nvim")    -- dracula theme
+    use({ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy=false })
     use("feline-nvim/feline.nvim") -- bottom tab
     use({
         "nvim-treesitter/nvim-treesitter",

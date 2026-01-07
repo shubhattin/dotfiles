@@ -26,11 +26,6 @@ if [ -d /usr/share/nvm ]; then
   source /usr/share/nvm/init-nvm.sh
 fi
 
-# deta
-if [ -d ~/.detaspace/bin ]; then
-  export PATH="/home/shubhattin/.detaspace/bin:$PATH"
-fi
-
 # bun
 if [ -d ~/.bun ]; then
   export BUN_INSTALL="$HOME/.bun"
@@ -46,6 +41,9 @@ if [ -d ~/.deno ]; then
 fi
 
 # Rust
+if [ -d ~/.cargo/bin ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
 if [ -f ~/.cargo/env ]; then
   . "$HOME/.cargo/env"
 fi
