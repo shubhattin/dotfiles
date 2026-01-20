@@ -19,7 +19,7 @@ fi
 # in the plugins and python, vscode
 
 # Java
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JAVA_HOME="/usr/lib/jvm/default"
 
 # NVM
 if [ -d /usr/share/nvm ]; then
