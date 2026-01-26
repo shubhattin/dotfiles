@@ -4,7 +4,7 @@ Name=Default
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=m17n_hi_itrans
+DefaultIM=lipilekhika-devanagari
 
 [Groups/0/Items/0]
 # Name
@@ -14,7 +14,7 @@ Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=m17n_hi_itrans
+Name=lipilekhika-devanagari
 # Layout
 Layout=
 
