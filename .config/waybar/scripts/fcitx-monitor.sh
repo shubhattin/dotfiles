@@ -20,6 +20,9 @@ get_current_im() {
     *pinyin* | *chinese* | *zh*)
       echo "ZH"
       ;;
+    *sanskrit* | *sa* | *devanagari*)
+      echo "SA"
+      ;;
     *hindi* | *hi*)
       echo "HI"
       ;;
@@ -31,9 +34,6 @@ get_current_im() {
       ;;
     *telugu* | *te*)
       echo "TE"
-      ;;
-    *sanskrit* | *sa* | *devanagari*)
-      echo "SA"
       ;;
     *malayalam* | *ml*)
       echo "ML"
