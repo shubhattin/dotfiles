@@ -11,17 +11,17 @@
     "power-profiles-daemon",
     "idle_inhibitor",
     "battery",
-    "clock"
+    "clock",
   ],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click": "gnome-calendar"
+    "on-click": "gnome-calendar",
   },
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
     "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
@@ -31,16 +31,15 @@
     "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
     "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
     "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}"
+    "tooltip-format": "{time}",
   },
   "custom/fcitx": {
     "format": "<span size='13000' foreground='#cba6f7'>󰌌 </span>{}",
     "exec": "~/.config/waybar/scripts/fcitx-monitor.sh",
-    "return-type": "",
     "restart-interval": 0,
     "tooltip": true,
     "tooltip-format": "Input Method: {}",
-    "on-click": "fcitx5-remote -t || fcitx-remote -t"
+    "on-click": "fcitx5-remote -t || fcitx-remote -t",
   },
   "network": {
     "format-wifi": "<span size='13000'>{icon}</span>",
@@ -50,19 +49,19 @@
     "format-icons": {
       "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
       "ethernet": "󰤭",
-      "disconnected": "󰤮"
+      "disconnected": "󰤮",
     },
     "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%",
     "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "kcmshell6 kcm_networkmanagement"
+    "on-click": "kcmshell6 kcm_networkmanagement",
   },
   "custom/fullscreen": {
     "exec": "~/.config/waybar/scripts/fullscreen-indicator.sh",
     "return-type": "json",
     "format": "{}",
     "interval": 1,
-    "tooltip": true
+    "tooltip": true,
   },
   "power-profiles-daemon": {
     "format": "<span size='13000' foreground='#fab387'>{icon}</span>",
@@ -70,13 +69,13 @@
       "default": "",
       "performance": "",
       "balanced": "",
-      "power-saver": ""
+      "power-saver": "",
     },
     "tooltip": true,
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "on-click": "powerprofilesctl set performance",
     "on-click-middle": "powerprofilesctl set balanced",
-    "on-click-right": "powerprofilesctl set power-saver"
+    "on-click-right": "powerprofilesctl set power-saver",
   },
   "bluetooth": {
     "format": "<span size='13000' foreground='#89b4fa'></span>",
@@ -87,24 +86,24 @@
     "tooltip-format-connected": "{controller_alias} ({controller_address})\n{num_connections} connected\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias} [{device_address}]",
     "tooltip-format-enumerate-connected-battery": "{device_alias} [{device_address}] {device_battery_percentage}%",
-    "on-click": "kcmshell6 kcm_bluetooth"
+    "on-click": "kcmshell6 kcm_bluetooth",
   },
   "idle_inhibitor": {
     "format": "<span size='13000' foreground='#a6e3a1'>{icon}</span>",
     "format-icons": {
       "activated": "󰅶",
-      "deactivated": "󰾪"
+      "deactivated": "󰾪",
     },
     "tooltip": true,
     "tooltip-format-activated": "Idle inhibitor: Active\nSystem will not sleep",
-    "tooltip-format-deactivated": "Idle inhibitor: Inactive\nSystem can sleep normally"
+    "tooltip-format-deactivated": "Idle inhibitor: Inactive\nSystem can sleep normally",
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-muted": "",
     "format-icons": {
-      "default": ["", "", " "]
+      "default": ["", "", " "],
     },
-    "on-click": "kcmshell6 kcm_pulseaudio"
-  }
+    "on-click": "kcmshell6 kcm_pulseaudio",
+  },
 }

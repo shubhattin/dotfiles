@@ -21,7 +21,7 @@ get_current_im() {
       echo "ZH"
       ;;
     *sanskrit* | *sa* | *devanagari*)
-      echo "SA"
+      echo "DE"
       ;;
     *hindi* | *hi*)
       echo "HI"
@@ -42,7 +42,7 @@ get_current_im() {
       echo "KN"
       ;;
     *Romanized* | *rom* | *romanized*)
-      echo "SA"
+      echo "RO"
       ;;
     *gujarati* | *gu*)
       echo "GU"
@@ -68,8 +68,8 @@ get_current_im
 if command -v dbus-monitor &> /dev/null; then
   dbus-monitor "path='/controller',interface='org.fcitx.Fcitx.Controller1'" 2> /dev/null \
     | while read -r line; do
-      if [[ $line == *"CurrentInputMethod"* ]] || [[ $line == *"member=CommitString"* ]]; then
-        sleep 0.1
+      if [[ $line == *"CurrentInputMethod"* ]]; then
+        sleep 0.1s
         get_current_im
       fi
     done
