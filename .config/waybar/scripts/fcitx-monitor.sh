@@ -41,6 +41,9 @@ get_current_im() {
     *kannada* | *kn*)
       echo "KN"
       ;;
+    *Romanized* | *rom* | *romanized*)
+      echo "SA"
+      ;;
     *gujarati* | *gu*)
       echo "GU"
       ;;
