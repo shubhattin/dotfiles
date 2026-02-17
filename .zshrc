@@ -92,3 +92,18 @@ if [ -d "$HOME/Android/Sdk/" ] ; then
   export PATH="$PATH:$ANDROID_HOME/platform-tools"
   export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 fi
+
+
+# update mime database
+alias update-mime="sudo bash ~/scripts/gen_mime.sh"
+
+# Run MIME/cache refresh after a full system upgrade.
+# This wraps ONLY `paru -Syu ...` (other paru commands are unchanged).
+paru() {
+  if [[ "${1-}" == "-Syu" ]]; then
+    command paru "$@" && update-mime
+    return $?
+  fi
+
+  command paru "$@"
+}
