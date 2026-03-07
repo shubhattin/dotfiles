@@ -107,3 +107,14 @@ paru() {
 
   command paru "$@"
 }
+
+# Cursor
+export CURSOR_PATH="cursor"
+csr () {
+  if (( $# ))
+    then
+        $CURSOR_PATH $@
+    else
+        $CURSOR_PATH .
+   fi
+}
