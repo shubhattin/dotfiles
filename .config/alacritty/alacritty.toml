@@ -1,0 +1,13 @@
+[font]
+size = 11
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+
+[window]
+opacity = 0.87
+
+[general]
+import = [
+  "~/.config/alacritty/themes/argonaut.toml"
+]
