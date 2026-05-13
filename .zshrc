@@ -93,6 +93,10 @@ if [ -d "$HOME/Android/Sdk/" ] ; then
   export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 fi
 
+# fvm
+if [ -d "$HOME/fvm/default/bin" ] ; then
+ export PATH="$HOME/fvm/default/bin:$PATH"
+fi
 
 # update mime database
 alias update-mime="sudo bash ~/scripts/gen_mime.sh"
