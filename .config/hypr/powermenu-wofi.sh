@@ -18,7 +18,7 @@ choice="$(printf '%s\n' \
 
 case "$choice" in
   '󰒲  Sleep')
-    systemctl suspend
+    bash -c '~/.config/hypr/suspend.sh'
     ;;
   '󰐥  Shutdown')
     systemctl poweroff
