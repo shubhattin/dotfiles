@@ -26,10 +26,9 @@ hover_highlight = true
 scale = 1.0
 font_weight = 500
 capsule = false
-start = ["launcher", "wallpaper", "workspaces"]
+start = ["workspaces"]
 center = ["clock"]
 end = [
-  "media",
   "tray",
   "notifications",
   "clipboard",
@@ -53,8 +52,11 @@ tooltip_format = "{:%A, %d %B %Y}"
 type = "workspaces"
 style = "regular"
 display = "id"
-hide_when_empty = false
-labels_only_when_occupied = false
+hide_when_empty = true
+labels_only_when_occupied = true
+# Keep active and inactive pills the same size; distinguish by color only.
+active_pill_size = 1.0
+inactive_pill_size = 1.0
 focused_color = "primary"
 occupied_color = "secondary"
 empty_color = "surface_variant"

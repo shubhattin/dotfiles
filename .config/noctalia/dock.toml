@@ -1,5 +1,5 @@
 [dock]
-enabled = true
+enabled = false
 position = "bottom"
 active_monitor_only = false
 monitors = []

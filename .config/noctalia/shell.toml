@@ -83,7 +83,7 @@ variant = "destructive"
 [shell.screenshot]
 confirm_region = false
 copy_to_clipboard = true
-directory = "/home/shubhattin/Pictures/Screenshots"
+directory = "~/Pictures/Screenshots"
 freeze_screen = true
 save_to_file = true
 
