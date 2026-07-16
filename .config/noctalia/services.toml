@@ -1,0 +1,58 @@
+[notification]
+enable_daemon = true
+show_app_name = true
+show_actions = true
+position = "top_right"
+layer = "top"
+scale = 1.0
+background_opacity = 0.97
+offset_x = 20
+offset_y = 8
+collapse_on_dismiss = true
+
+[audio]
+enable_overdrive = false
+enable_sounds = false
+sound_volume = 0.5
+
+[brightness]
+enable_ddcutil = false
+minimum_brightness = 0.0
+sync_all_monitors = false
+
+[battery]
+warning_threshold = 15
+
+[weather]
+enabled = true
+effects = true
+unit = "metric"
+refresh_minutes = 30
+
+[nightlight]
+enabled = false
+force = false
+temperature_day = 6500
+temperature_night = 4000
+
+[desktop_widgets]
+enabled = false
+
+[hot_corners]
+enabled = false
+
+[plugins]
+auto_update = true
+enabled = []
+
+[[plugins.source]]
+enabled = true
+kind = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+name = "official"
+
+[[plugins.source]]
+enabled = true
+kind = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+name = "community"

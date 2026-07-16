@@ -1,0 +1,15 @@
+# Noctalia v5 entry config — curated for Hyprland dotfiles.
+# GUI overrides live in ~/.local/state/noctalia/settings.toml and win when present.
+
+[include]
+autoload = false
+files = [
+  "theme.toml",
+  "shell.toml",
+  "bar.toml",
+  "dock.toml",
+  "services.toml",
+  "wallpaper.toml",
+  "idle.toml",
+  "lockscreen.toml",
+]

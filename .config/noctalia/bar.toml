@@ -1,0 +1,102 @@
+[bar]
+order = ["main"]
+
+[bar.main]
+enabled = true
+position = "top"
+auto_hide = false
+smart_auto_hide = false
+reserve_space = true
+layer = "top"
+thickness = 34
+background_opacity = 0.92
+border = "outline"
+border_width = 0.0
+shadow = true
+contact_shadow = true
+panel_overlap = 1
+radius = 12
+concave_edge_corners = true
+margin_ends = 80
+margin_edge = 0
+margin_opposite_edge = 0
+padding = 14
+widget_spacing = 6
+hover_highlight = true
+scale = 1.0
+font_weight = 500
+capsule = false
+start = ["launcher", "wallpaper", "workspaces"]
+center = ["clock"]
+end = [
+  "media",
+  "tray",
+  "notifications",
+  "clipboard",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "power_profile",
+  "caffeine",
+  "control-center",
+  "session",
+]
+
+[widget.clock]
+type = "clock"
+format = "{:%a %d %H:%M}"
+tooltip_format = "{:%A, %d %B %Y}"
+
+[widget.workspaces]
+type = "workspaces"
+style = "regular"
+display = "id"
+hide_when_empty = false
+labels_only_when_occupied = false
+focused_color = "primary"
+occupied_color = "secondary"
+empty_color = "surface_variant"
+
+[widget.volume]
+type = "volume"
+device = "output"
+show_label = false
+scroll_step = 3
+
+[widget.brightness]
+type = "brightness"
+show_label = false
+scroll_step = 5
+
+[widget.network]
+type = "network"
+show_label = false
+
+[widget.bluetooth]
+type = "bluetooth"
+show_label = false
+
+[widget.battery]
+type = "battery"
+display_mode = "graphic"
+show_label = true
+
+[widget.notifications]
+type = "notifications"
+hide_when_no_unread = false
+
+[widget.tray]
+type = "tray"
+drawer = true
+drawer_columns = 3
+drawer_item_size = 20
+# Keep NetworkManager applet visible while we still autostart nm-applet.
+pinned = ["nm-applet"]
+
+[widget.media]
+type = "media"
+max_length = 180
+min_length = 60
+title_scroll = "none"

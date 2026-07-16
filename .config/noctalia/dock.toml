@@ -1,0 +1,37 @@
+[dock]
+enabled = true
+position = "bottom"
+active_monitor_only = false
+monitors = []
+icon_size = 44
+main_axis_padding = 14
+cross_axis_padding = 8
+item_spacing = 6
+background_opacity = 0.88
+shadow = true
+radius = 16
+concave_edge_corners = true
+margin_ends = 0
+margin_edge = 8
+show_running = true
+auto_hide = false
+smart_auto_hide = true
+reserve_space = false
+active_scale = 1.0
+inactive_scale = 0.88
+magnification = true
+magnification_scale = 1.35
+active_opacity = 1.0
+inactive_opacity = 0.85
+show_instance_count = true
+show_dots = true
+launcher_position = "start"
+launcher_icon = "grid-dots"
+pinned = [
+  "zen",
+  "com.mitchellh.ghostty",
+  "org.kde.dolphin",
+  "cursor",
+  "code",
+  "brave-browser",
+]

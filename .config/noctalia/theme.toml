@@ -1,0 +1,9 @@
+[theme]
+mode = "dark"
+source = "custom"
+custom_palette = "Catppuccin-Mocha"
+pure_black_dark = false
+
+[theme.templates]
+enable_builtin_templates = true
+enable_community_templates = true
