@@ -1,0 +1,28 @@
+# Mirrors the previous hypridle policy:
+# 300s dim -> 330s lock -> 350s screen off -> 600s lock-and-suspend
+
+[idle]
+pre_action_fade_seconds = 2.0
+behavior_order = ["dim", "lock", "screen-off", "lock-and-suspend"]
+
+[idle.behavior.dim]
+enabled = true
+timeout = 300
+action = "command"
+command = "brightnessctl -s set 10"
+resume_command = "brightnessctl -r"
+
+[idle.behavior.lock]
+enabled = true
+timeout = 330
+action = "lock"
+
+[idle.behavior.screen-off]
+enabled = true
+timeout = 350
+action = "screen_off"
+
+[idle.behavior.lock-and-suspend]
+enabled = true
+timeout = 600
+action = "lock_and_suspend"

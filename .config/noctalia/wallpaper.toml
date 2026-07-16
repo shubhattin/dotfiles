@@ -1,0 +1,24 @@
+[wallpaper]
+enabled = true
+fill_mode = "crop"
+fill_color = "surface"
+transition = ["fade"]
+transition_duration = 1200
+edge_smoothness = 0.3
+transition_on_startup = false
+directory = "~/.config/backgrounds/dark"
+directory_dark = "~/.config/backgrounds/dark"
+directory_light = "~/.config/backgrounds/dark"
+per_monitor_directories = false
+
+[wallpaper.default]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.automation]
+enabled = false
+interval_seconds = 1800
+order = "random"
+recursive = true
+
+[backdrop]
+enabled = false

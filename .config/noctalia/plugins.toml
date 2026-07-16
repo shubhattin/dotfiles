@@ -1,0 +1,23 @@
+# Local and third-party Noctalia plugins.
+
+[plugins]
+enabled = [
+  "shubhattin/fullscreen_indicator",
+  "shubhattin/keybind_help",
+]
+
+[[plugins.source]]
+name = "official"
+kind = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+
+[[plugins.source]]
+name = "community"
+kind = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+
+# Dotfiles-managed plugins under ~/.local/share/noctalia/plugins/<author>/
+[[plugins.source]]
+name = "local-dotfiles"
+kind = "path"
+location = "~/.local/share/noctalia/plugins/shubhattin"

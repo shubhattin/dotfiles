@@ -1,6 +1,0 @@
-[server]
-style = "./style.css"
-min_brightness = 5
-keyboard_backlight = true
-
-[client]

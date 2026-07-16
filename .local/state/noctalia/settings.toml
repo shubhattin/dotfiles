@@ -1,0 +1,121 @@
+config_version = 2
+
+[lockscreen]
+blur_intensity = 0.59999999999999998
+blurred_desktop = false
+fingerprint = false
+tint_intensity = 0.34999999999999998
+wallpaper = "~/.config/backgrounds/dark/dark-milky-way.jpg"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-clock@eDP-1",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-clock@DP-1",
+    "lockscreen-login-box@DP-1",
+]
+
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = false
+
+[lockscreen_widgets.widget."lockscreen-clock@DP-1"]
+box_height = 90.0
+box_width = 280.0
+cx = 960.0
+cy = 320.0
+enabled = true
+output = "DP-1"
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget."lockscreen-clock@DP-1".settings]
+center_text = true
+clock_style = "digital"
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+format = """{:%H:%M}
+{:%a %d %b}"""
+shadow = true
+
+[lockscreen_widgets.widget."lockscreen-clock@eDP-1"]
+box_height = 90.0
+box_width = 260.0
+cx = 768.0
+cy = 280.0
+enabled = true
+output = "eDP-1"
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget."lockscreen-clock@eDP-1".settings]
+center_text = true
+clock_style = "digital"
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+format = """{:%H:%M}
+{:%a %d %b}"""
+shadow = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+box_height = 70.0
+box_width = 400.0
+cx = 960.0
+cy = 961.0
+enabled = true
+output = "DP-1"
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+show_caps_lock = true
+show_keyboard_layout = false
+show_login_button = false
+show_password_hint = false
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 70.0
+box_width = 400.0
+cx = 768.0
+cy = 745.0
+enabled = true
+output = "eDP-1"
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+show_caps_lock = true
+show_keyboard_layout = false
+show_login_button = false
+show_password_hint = false
+
+[theme]
+builtin = "Tokyo-Night"
+source = "builtin"
+
+[wallpaper.default]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.last]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
