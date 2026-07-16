@@ -29,6 +29,7 @@ capsule = false
 start = ["workspaces"]
 center = ["clock"]
 end = [
+  "fullscreen-indicator",
   "tray",
   "notifications",
   "clipboard",
@@ -47,6 +48,10 @@ end = [
 type = "clock"
 format = "{:%a %d %H:%M}"
 tooltip_format = "{:%A, %d %B %Y}"
+
+# Old Waybar custom/fullscreen: icon only for SUPER_SHIFT+F (fullscreen 1).
+[widget.fullscreen-indicator]
+type = "shubhattin/fullscreen_indicator:indicator"
 
 [widget.workspaces]
 type = "workspaces"

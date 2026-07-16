@@ -1,0 +1,13 @@
+id = "shubhattin/fullscreen_indicator"
+name = "Fullscreen Indicator"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "shubhattin"
+license = "MIT"
+description = "Shows an icon when the focused window is in maximized fullscreen (Hyprland SUPER_SHIFT+F / fullscreen 1)."
+icon = "arrows-maximize"
+tags = ["hyprland", "fullscreen", "bar"]
+
+[[widget]]
+id = "indicator"
+entry = "indicator.luau"
