@@ -12,8 +12,10 @@ enabled = true
 schema_version = 2
 widget_order = [
     "lockscreen-clock@eDP-1",
+    "lockscreen-sleep@eDP-1",
     "lockscreen-login-box@eDP-1",
     "lockscreen-clock@DP-1",
+    "lockscreen-sleep@DP-1",
     "lockscreen-login-box@DP-1",
 ]
 
@@ -59,6 +61,43 @@ font_family = "JetBrainsMono Nerd Font"
 format = """{:%H:%M}
 {:%a %d %b}"""
 shadow = true
+
+
+[lockscreen_widgets.widget."lockscreen-sleep@DP-1"]
+box_height = 36.0
+box_width = 160.0
+cx = 960.0
+cy = 430.0
+enabled = true
+output = "DP-1"
+rotation = 0.0
+type = "label"
+
+    [lockscreen_widgets.widget."lockscreen-sleep@DP-1".settings]
+    background = false
+    color = "on_surface_variant"
+    description = ""
+    opacity = 0.85
+    shadow = true
+    title = "Sleep  (F7)"
+
+[lockscreen_widgets.widget."lockscreen-sleep@eDP-1"]
+box_height = 36.0
+box_width = 160.0
+cx = 768.0
+cy = 390.0
+enabled = true
+output = "eDP-1"
+rotation = 0.0
+type = "label"
+
+    [lockscreen_widgets.widget."lockscreen-sleep@eDP-1".settings]
+    background = false
+    color = "on_surface_variant"
+    description = ""
+    opacity = 0.85
+    shadow = true
+    title = "Sleep  (F7)"
 
 [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
 box_height = 70.0

@@ -18,8 +18,10 @@ enabled = true
 schema_version = 2
 widget_order = [
   "lockscreen-clock@eDP-1",
+  "lockscreen-sleep@eDP-1",
   "lockscreen-login-box@eDP-1",
   "lockscreen-clock@DP-1",
+  "lockscreen-sleep@DP-1",
   "lockscreen-login-box@DP-1",
 ]
 
@@ -45,6 +47,25 @@ clock_style = "digital"
 color = "on_surface"
 shadow = true
 font_family = "JetBrainsMono Nerd Font"
+
+# Hint only — actual sleep bind remains Super+Shift+F7.
+[lockscreen_widgets.widget."lockscreen-sleep@eDP-1"]
+enabled = true
+output = "eDP-1"
+type = "label"
+cx = 768.0
+cy = 390.0
+box_width = 160.0
+box_height = 36.0
+rotation = 0.0
+
+[lockscreen_widgets.widget."lockscreen-sleep@eDP-1".settings]
+title = "Sleep  (F7)"
+description = ""
+color = "on_surface_variant"
+shadow = true
+background = false
+opacity = 0.85
 
 [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
 enabled = true
@@ -85,6 +106,24 @@ clock_style = "digital"
 color = "on_surface"
 shadow = true
 font_family = "JetBrainsMono Nerd Font"
+
+[lockscreen_widgets.widget."lockscreen-sleep@DP-1"]
+enabled = true
+output = "DP-1"
+type = "label"
+cx = 960.0
+cy = 430.0
+box_width = 160.0
+box_height = 36.0
+rotation = 0.0
+
+[lockscreen_widgets.widget."lockscreen-sleep@DP-1".settings]
+title = "Sleep  (F7)"
+description = ""
+color = "on_surface_variant"
+shadow = true
+background = false
+opacity = 0.85
 
 [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
 enabled = true

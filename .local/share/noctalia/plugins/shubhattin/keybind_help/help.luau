@@ -61,40 +61,6 @@ local function render()
 		}),
 
 		ui.scroll({ flexGrow = 1, gap = 12 }, {
-			section("Apps & windows", {
-				bind_row("Super + T / Enter", "Open terminal (Ghostty)"),
-				bind_row("Shift + Alt + T", "Open alternate terminal"),
-				bind_row("Super + B", "Open Zen browser"),
-				bind_row("Super + E / W", "Open file manager"),
-				bind_row("Super + R / Space", "App launcher"),
-				bind_row("Super + Q / Alt + F4", "Close active window"),
-				bind_row("Super + Ctrl + V", "Toggle floating"),
-				bind_row("Super + P", "Dwindle pseudo"),
-				bind_row("Super + Shift + J", "Toggle dwindle split"),
-			}),
-
-			section("Focus, move & resize", {
-				bind_row("Super + ←↑↓→ / HJKL", "Move focus"),
-				bind_row("Super + Shift + ←↑↓→ / HJKL", "Resize active window"),
-				bind_row("Super + LMB / RMB", "Move / resize with mouse"),
-				bind_row("Ctrl + Super + Shift + ←→", "Move workspace to monitor"),
-			}),
-
-			section("Workspaces", {
-				bind_row("Super + 1 … 0", "Switch workspace 1–10"),
-				bind_row("Super + Shift + 1 … 0", "Move window to workspace"),
-				bind_row("Super + Alt + 1 … 0", "Move window silently"),
-				bind_row("Super + S", "Toggle special workspace"),
-				bind_row("Super + Shift + S", "Send window to special"),
-				bind_row("Super + Scroll", "Cycle workspaces"),
-			}),
-
-			section("Fullscreen", {
-				bind_row("Super + F", "True fullscreen"),
-				bind_row("Super + Shift + F", "Maximized (bar stays)"),
-				bind_row("Super + Ctrl/Alt + F", "Fullscreen (hide bars)"),
-			}),
-
 			section("Shell & session", {
 				bind_row("Super + V", "Clipboard history"),
 				bind_row("Super + Shift + C", "Control center"),
@@ -107,6 +73,27 @@ local function render()
 				bind_row("Super + Shift + /", "This help overlay"),
 			}),
 
+			section("Workspaces", {
+				bind_row("Super + 1 … 0", "Switch workspace 1–10"),
+				bind_row("Super + Shift + 1 … 0", "Move window to workspace"),
+				bind_row("Super + Alt + 1 … 0", "Move window silently"),
+				bind_row("Super + Shift + S", "Send window to hidden workspace"),
+				bind_row("Super + Scroll", "Cycle workspaces"),
+			}),
+
+			section("Focus, move & resize", {
+				bind_row("Super + ←↑↓→ / JKL", "Move focus"),
+				bind_row("Super + Shift + ←↑↓→ / HJKL", "Resize active window"),
+				bind_row("Super + LMB / RMB", "Move / resize with mouse"),
+				bind_row("Ctrl + Super + Shift + ←→", "Move workspace to monitor"),
+			}),
+
+			section("Fullscreen", {
+				bind_row("Super + F", "True fullscreen"),
+				bind_row("Super + Shift + F", "Maximized (bar stays)"),
+				bind_row("Super + Ctrl/Alt + F", "Fullscreen (hide bars)"),
+			}),
+
 			section("Media, brightness & capture", {
 				bind_row("Media keys", "Volume / mute / mic / playback"),
 				bind_row("Alt + F9 / F10", "Laptop brightness down / up"),
@@ -114,6 +101,18 @@ local function render()
 				bind_row("Super + Print", "Screenshot monitor"),
 				bind_row("Super + Shift + Print", "Screenshot region"),
 				bind_row("Super + Ctrl + Print", "Screenshot window"),
+			}),
+
+			section("Apps & windows", {
+				bind_row("Super + T / Enter", "Open terminal (Ghostty)"),
+				bind_row("Shift + Alt + T", "Open alternate terminal"),
+				bind_row("Super + B", "Open Zen browser"),
+				bind_row("Super + E / W", "Open file manager"),
+				bind_row("Super + R / Space", "App launcher"),
+				bind_row("Super + Q / Alt + F4", "Close active window"),
+				bind_row("Super + Ctrl + V", "Toggle floating"),
+				bind_row("Super + P", "Dwindle pseudo"),
+				bind_row("Super + Shift + J", "Toggle dwindle split"),
 			}),
 
 			section("Quick apps", {
