@@ -1,7 +1,10 @@
 # Local and third-party Noctalia plugins.
 
 [plugins]
-enabled = ["shubhattin/fullscreen_indicator"]
+enabled = [
+  "shubhattin/fullscreen_indicator",
+  "shubhattin/keybind_help",
+]
 
 [[plugins.source]]
 name = "official"

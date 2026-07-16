@@ -1,0 +1,18 @@
+id = "shubhattin/keybind_help"
+name = "Keybind Help"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "shubhattin"
+license = "MIT"
+description = "Overlay cheatsheet of the main Hyprland / Noctalia shortcuts."
+icon = "keyboard"
+tags = ["hyprland", "keybinds", "help"]
+
+[[panel]]
+id = "help"
+entry = "help.luau"
+width = 780
+height = 640
+placement = "floating"
+position = "center"
+open_near_click = false
