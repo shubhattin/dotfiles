@@ -296,7 +296,8 @@ hl.bind("CTRL + ALT + O",  hl.dsp.exec_cmd("helium-browser --password-store=basi
 
 -- Noctalia panels / session
 hl.bind("SUPER + V",           hl.dsp.exec_cmd(noctalia .. " panel-toggle clipboard"))
-hl.bind("SUPER + SPACE",       hl.dsp.exec_cmd(noctalia .. " panel-toggle launcher"))
+-- SUPER + SPACE: conflicts with fcitx (same action as SUPER + R launcher)
+-- hl.bind("SUPER + SPACE",       hl.dsp.exec_cmd(noctalia .. " panel-toggle launcher"))
 hl.bind("SUPER + SHIFT + C",   hl.dsp.exec_cmd(noctalia .. " panel-toggle control-center"))
 hl.bind("SUPER + comma",       hl.dsp.exec_cmd(noctalia .. " settings-toggle"))
 hl.bind("SUPER + SHIFT + slash", hl.dsp.exec_cmd(noctalia .. " panel-toggle shubhattin/keybind_help:help"))

@@ -8,7 +8,7 @@
 enabled = true
 allow_empty_password = false
 blurred_desktop = false
-blur_intensity = 0.6
+blur_intensity = 0
 tint_intensity = 0.35
 fingerprint = false
 wallpaper = "~/.config/backgrounds/dark/dark-milky-way.jpg"
