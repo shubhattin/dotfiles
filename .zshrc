@@ -122,3 +122,11 @@ csr () {
         $CURSOR_PATH .
    fi
 }
+
+
+# .NET tools
+if [ -d "$HOME/.dotnet/tools" ]; then
+  export PATH="$PATH:$HOME/.dotnet/tools"
+fi
+export DOTNET_ROLL_FORWARD=Major
+
