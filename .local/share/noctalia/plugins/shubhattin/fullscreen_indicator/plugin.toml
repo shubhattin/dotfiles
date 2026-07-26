@@ -1,10 +1,11 @@
 id = "shubhattin/fullscreen_indicator"
 name = "Fullscreen Indicator"
-version = "1.0.0"
+version = "1.0.1"
+plugin_api = 9
 min_noctalia = "5.0.0"
 author = "shubhattin"
 license = "MIT"
-description = "Shows an icon when the focused window is in maximized fullscreen (Hyprland SUPER_SHIFT+F / fullscreen 1)."
+description = "Shows an icon when the focused window is maximized with the bar still visible (Hyprland SUPER+SHIFT+F)."
 icon = "arrows-maximize"
 tags = ["hyprland", "fullscreen", "bar"]
 

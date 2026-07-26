@@ -64,11 +64,11 @@ scale = 1.25
 # Keep active and inactive pills the same size; distinguish by color only.
 active_pill_size = 1.0
 inactive_pill_size = 1.0
-# Only the monitor with mouse/keyboard focus uses focused_color.
-# Other monitors' currently-displayed workspace uses occupied_color (dark violet).
+# Only the monitor with mouse/keyboard focus uses focused_color (dark blue).
+# Normal occupied workspaces stay light blue (coherent with focus).
 focused_output_only = true
-focused_color = "secondary"
-occupied_color = "primary"
+focused_color = "#456abb"
+occupied_color = "#89b4fa"
 empty_color = "surface_variant"
 
 [widget.volume]
