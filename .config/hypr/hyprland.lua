@@ -114,6 +114,16 @@ hl.config({
         new_status = "master",
     },
 
+    -- Niri-like horizontal strip (enable via layout switch binds below)
+    scrolling = {
+        fullscreen_on_one_column = true,
+        column_width             = 0.5,
+        follow_focus             = true,
+        follow_min_visible       = 0.4,
+        explicit_column_widths   = "0.333, 0.5, 0.667, 1.0",
+        wrap_focus               = true,
+    },
+
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo   = true,
@@ -209,7 +219,52 @@ hl.bind(mainMod .. " + W",      hl.dsp.exec_cmd(fileManager1))
 hl.bind(mainMod .. " + CTRL + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R",      hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P",      hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit")) -- dwindle only
+
+-- Layout modes: dwindle | master | scrolling
+-- Default stays dwindle; switch with the binds below (not floating — float is per-window).
+local LAYOUTS = { "dwindle", "master", "scrolling" }
+
+local function set_layout(name)
+    hl.config({ general = { layout = name } })
+    hl.notification.create({ text = "Layout: " .. name, timeout = 1800 })
+end
+
+local function cycle_layout(step)
+    local current = hl.get_config("general.layout") or "dwindle"
+    local idx = 1
+    for i, name in ipairs(LAYOUTS) do
+        if name == current then
+            idx = i
+            break
+        end
+    end
+    idx = ((idx - 1 + step) % #LAYOUTS) + 1
+    set_layout(LAYOUTS[idx])
+end
+
+hl.bind(mainMod .. " + CTRL + Y", function()
+    cycle_layout(1)
+end)
+hl.bind(mainMod .. " + CTRL + 1", function()
+    set_layout("dwindle")
+end)
+hl.bind(mainMod .. " + CTRL + 2", function()
+    set_layout("master")
+end)
+hl.bind(mainMod .. " + CTRL + 3", function()
+    set_layout("scrolling")
+end)
+
+-- Scrolling layout (Niri-like) — useful when layout = scrolling
+hl.bind(mainMod .. " + bracketleft",  hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + bracketright", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + CTRL + bracketleft",  hl.dsp.layout("colresize -conf"))
+hl.bind(mainMod .. " + CTRL + bracketright", hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.layout("promote")) -- window → own column
+hl.bind(mainMod .. " + CTRL + period", hl.dsp.layout("fit active"))
 
 -- Move focus
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

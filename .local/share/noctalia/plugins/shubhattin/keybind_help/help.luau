@@ -10,7 +10,7 @@ local function bind_row(keys, desc)
 			fontWeight = "bold",
 			fontSize = 12,
 			color = "primary",
-			width = 250,
+			width = 260,
 		}),
 		ui.label({
 			text = desc,
@@ -61,6 +61,27 @@ local function render()
 		}),
 
 		ui.scroll({ flexGrow = 1, gap = 12 }, {
+			section("Layout modes (3)", {
+				bind_row("Super + Ctrl + Y", "Cycle: dwindle → master → scrolling"),
+				bind_row("Super + Ctrl + 1", "Dwindle (default tiling / BSP)"),
+				bind_row("Super + Ctrl + 2", "Master (one main + stack)"),
+				bind_row("Super + Ctrl + 3", "Scrolling (Niri-like strip)"),
+				bind_row("Super + Ctrl + V", "Toggle floating (per-window, not a layout)"),
+			}),
+
+			section("Scrolling layout (when active)", {
+				bind_row("Super + [ / ]", "Scroll strip left / right (columns)"),
+				bind_row("Super + Shift + [ / ]", "Swap column left / right"),
+				bind_row("Super + Ctrl + [ / ]", "Cycle column width presets"),
+				bind_row("Super + Ctrl + Enter", "Promote window to its own column"),
+				bind_row("Super + Ctrl + .", "Fit active column into view"),
+			}),
+
+			section("Dwindle helpers", {
+				bind_row("Super + P", "Pseudo-tile"),
+				bind_row("Super + Shift + J", "Toggle split direction"),
+			}),
+
 			section("Shell & session", {
 				bind_row("Super + V", "Clipboard history"),
 				bind_row("Super + Shift + C", "Control center"),
@@ -77,7 +98,8 @@ local function render()
 				bind_row("Super + 1 … 0", "Switch workspace 1–10"),
 				bind_row("Super + Shift + 1 … 0", "Move window to workspace"),
 				bind_row("Super + Alt + 1 … 0", "Move window silently"),
-				bind_row("Super + Shift + S", "Send window to hidden workspace"),
+				bind_row("Super + S", "Toggle special workspace"),
+				bind_row("Super + Shift + S", "Send window to special workspace"),
 				bind_row("Super + Scroll", "Cycle workspaces"),
 			}),
 
@@ -91,7 +113,7 @@ local function render()
 			section("Fullscreen", {
 				bind_row("Super + F", "True fullscreen"),
 				bind_row("Super + Shift + F", "Maximized (bar stays)"),
-				bind_row("Super + Ctrl/Alt + F", "Fullscreen (hide bars)"),
+				bind_row("Super + Ctrl/Alt + F", "Fullscreen state toggle"),
 			}),
 
 			section("Media, brightness & capture", {
@@ -108,11 +130,8 @@ local function render()
 				bind_row("Shift + Alt + T", "Open alternate terminal"),
 				bind_row("Super + B", "Open Zen browser"),
 				bind_row("Super + E / W", "Open file manager"),
-				bind_row("Super + R / Space", "App launcher"),
+				bind_row("Super + R", "App launcher"),
 				bind_row("Super + Q / Alt + F4", "Close active window"),
-				bind_row("Super + Ctrl + V", "Toggle floating"),
-				bind_row("Super + P", "Dwindle pseudo"),
-				bind_row("Super + Shift + J", "Toggle dwindle split"),
 			}),
 
 			section("Quick apps", {
