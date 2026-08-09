@@ -8,6 +8,7 @@
 enabled = true
 allow_empty_password = false
 blurred_desktop = false
+# Prefer sharp lock wallpaper; settings.toml blur overrides this if present.
 blur_intensity = 0
 tint_intensity = 0.35
 fingerprint = false
@@ -87,7 +88,10 @@ input_radius = 6.0
 show_caps_lock = true
 show_keyboard_layout = false
 show_login_button = false
-show_password_hint = false
+# v5+ login_box can show now-playing; keep session/sleep controls, hide media.
+show_media = false
+show_session_buttons = true
+show_weather = false
 
 [lockscreen_widgets.widget."lockscreen-clock@DP-1"]
 enabled = true
@@ -145,4 +149,6 @@ input_radius = 6.0
 show_caps_lock = true
 show_keyboard_layout = false
 show_login_button = false
-show_password_hint = false
+show_media = false
+show_session_buttons = true
+show_weather = false

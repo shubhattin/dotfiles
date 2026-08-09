@@ -14,6 +14,15 @@ per_monitor_directories = false
 [wallpaper.default]
 path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
 
+[wallpaper.last]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
 [wallpaper.automation]
 enabled = false
 interval_seconds = 1800

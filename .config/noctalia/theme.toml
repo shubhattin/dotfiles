@@ -1,6 +1,7 @@
 [theme]
 mode = "dark"
-source = "custom"
+source = "builtin"
+builtin = "Tokyo-Night"
 custom_palette = "Catppuccin-Mocha"
 pure_black_dark = false
 
