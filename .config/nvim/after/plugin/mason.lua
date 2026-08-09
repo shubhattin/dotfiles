@@ -1,23 +1,33 @@
 if vim.g.vscode then
   return
 end
-require("mason").setup()
 
-local lsp_zero = require("lsp-zero")
+-- Non-LSP Mason tools (formatters). LSP servers are handled in lsp.lua.
+local tools = {
+  "prettierd",
+  "prettier",
+  "black",
+  "shfmt",
+  "stylua",
+}
 
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "eslint",
-  },
-  handlers = {
-    function(server_name)
-      require("lspconfig")[server_name].setup({})
-    end,
+local ok, registry = pcall(require, "mason-registry")
+if not ok then
+  return
+end
 
-    -- this is the "custom handler" for `lua_ls`
-    lua_ls = function()
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require("lspconfig").lua_ls.setup(lua_opts)
-    end,
-  },
-})
+local function ensure_tool(name)
+  local success, pkg = pcall(registry.get_package, name)
+  if not success or not pkg then
+    return
+  end
+  if not pkg:is_installed() then
+    pkg:install()
+  end
+end
+
+registry.refresh(function()
+  for _, name in ipairs(tools) do
+    ensure_tool(name)
+  end
+end)

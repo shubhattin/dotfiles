@@ -53,9 +53,12 @@ if not vim.g.vscode then
     use("feline-nvim/feline.nvim") -- bottom tab
     use({
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
     })                                   -- code highlighting
-    use("nvim-treesitter/playground")
+    -- playground removed: use :InspectTree (built into Neovim 0.10+)
+
     use("nvim-telescope/telescope.nvim") -- file finder
     use({ "nvim-tree/nvim-tree.lua"      -- file tree explorer
     })
