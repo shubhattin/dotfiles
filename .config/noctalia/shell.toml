@@ -8,7 +8,8 @@ clipboard_confirm_clear_history = true
 clipboard_history_max_entries = 100
 setup_wizard_enabled = false
 settings_show_advanced = true
-middle_click_opens_widget_settings = true
+# middle-click → widget settings is the built-in default (legacy
+# middle_click_opens_widget_settings was removed in recent Noctalia).
 polkit_agent = false
 telemetry_enabled = false
 time_format = "{:%H:%M}"

@@ -11,6 +11,9 @@ directory_dark = "~/.config/backgrounds/dark"
 directory_light = "~/.config/backgrounds/dark"
 per_monitor_directories = false
 
+# NOTE: Noctalia treats wallpaper.default / .last / .monitors as app-managed
+# state loaded from ~/.local/state/noctalia/settings.toml (not from this file).
+# Keep a mirror here for recovery; do not prune those keys from settings.toml.
 [wallpaper.default]
 path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
 

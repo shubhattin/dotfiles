@@ -58,7 +58,7 @@ Also read `~/.local/state/noctalia/settings.toml` — those keys **override**
 Compare merged sections to the matching split file. Typical high-signal keys:
 
 - `[theme]` → `theme.toml` (`source`, `builtin`, `custom_palette`, `mode`)
-- `[wallpaper]` (+ `.default` / `.last` / `.monitors.*`) → `wallpaper.toml`
+- `[wallpaper]` (fill/directory/automation) → `wallpaper.toml`
 - `[lockscreen]` + `[lockscreen_widgets]` → `lockscreen.toml`
 - `[bar]` + `[widget.*]` that belong on the bar → `bar.toml`
 - `[plugins]` → `plugins.toml`
@@ -69,8 +69,17 @@ Compare merged sections to the matching split file. Typical high-signal keys:
 Do **not** blindly dump the entire merged tree into one file. Keep the split
 layout from `config.toml`.
 
-Skip ephemeral noise when possible (`wallpaper.last` is fine to keep if the
-user wants the current wallpaper pinned).
+**Wallpaper selection is app-managed state.** Noctalia loads
+`wallpaper.default` / `wallpaper.last` / `wallpaper.monitors.*` only from
+`~/.local/state/noctalia/settings.toml` (via `extractWallpaperFromOverrides`).
+Mirroring those paths in `wallpaper.toml` is fine for recovery/docs, but
+pruning them from `settings.toml` blanks the desktop wallpaper layers while
+`lockscreen.wallpaper` (a real setting) still works. If desktop wallpaper is
+missing, re-seed with:
+
+```bash
+noctalia msg wallpaper-set ~/.config/backgrounds/dark/dark-starry-sky.jpg
+```
 
 ### 3. Promote durable prefs
 
@@ -109,13 +118,37 @@ show_session_buttons = true
 After promoting keys into `~/.config/noctalia`, remove the same keys from
 `~/.local/state/noctalia/settings.toml` so overrides stop winning.
 
-If everything durable is in config, it is OK to leave only:
+**Never prune** these wallpaper selection keys from `settings.toml`:
+
+- `wallpaper.default`
+- `wallpaper.last`
+- `wallpaper.monitors.*`
+- `wallpaper.favorite` (if present)
+
+If everything else durable is in config, a healthy minimal state file looks like:
 
 ```toml
-config_version = 11
+config_version = 12
+
+[wallpaper.default]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.last]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "~/.config/backgrounds/dark/dark-starry-sky.jpg"
 ```
 
-(Keep `config_version` in sync with whatever Noctalia last wrote.)
+Prefer `~/...` paths for portability across usernames. Noctalia expands them on
+load (`FileUtils::expandUserPath`). Note: `noctalia msg wallpaper-set` may
+rewrite absolute paths into `settings.toml`; convert back to `~/` when syncing
+if you want the portable form.
+
+(Keep `config_version` and monitor names in sync with whatever Noctalia last wrote.)
 
 Never delete secrets or unrelated state files under `~/.local/state/noctalia/`
 other than pruning redundant keys in `settings.toml`.

@@ -56,7 +56,7 @@ type = "shubhattin/fullscreen_indicator:indicator"
 [widget.workspaces]
 type = "workspaces"
 style = "regular"
-display = "id"
+label_source = "id"
 hide_when_empty = true
 labels_only_when_occupied = true
 # Larger workspace numbers for readability.
@@ -75,12 +75,14 @@ empty_color = "surface_variant"
 type = "volume"
 device = "output"
 show_label = false
-scroll_step = 3
+
+[widget.volume.actions]
+scroll_up = "volume-up 3%"
+scroll_down = "volume-down 3%"
 
 [widget.brightness]
 type = "brightness"
 show_label = false
-scroll_step = 5
 
 [widget.network]
 type = "network"

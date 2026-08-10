@@ -14,6 +14,9 @@ Also linked from `~/.agents/skills/sync-noctalia` for personal agent discovery.
 - Declarative config: `~/.config/noctalia` (symlink into this repo).
 - Runtime/GUI overrides: `~/.local/state/noctalia/settings.toml` (wins when present).
 - After GUI tweaks, run `/sync-noctalia` so the repo stays source of truth.
+- Desktop wallpaper selection (`wallpaper.default` / `.last` / `.monitors.*`) is
+  app-managed state in `settings.toml` — do not prune it during sync, or the
+  desktop wallpaper layers go blank (lockscreen wallpaper is separate).
 
 ## Lockscreen policy
 
