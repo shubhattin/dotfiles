@@ -130,3 +130,4 @@ if [ -d "$HOME/.dotnet/tools" ]; then
 fi
 export DOTNET_ROLL_FORWARD=Major
 
+OPENCODE_ENABLE_EXA=1
