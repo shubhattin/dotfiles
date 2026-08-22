@@ -105,6 +105,7 @@ local function render()
 
 			section("Focus, move & resize", {
 				bind_row("Super + ←↑↓→ / JKL", "Move focus"),
+				bind_row("Super + Alt + [ / ]", "Focus monitor left / right"),
 				bind_row("Super + Shift + ←↑↓→ / HJKL", "Resize active window"),
 				bind_row("Super + LMB / RMB", "Move / resize with mouse"),
 				bind_row("Ctrl + Super + Shift + ←→", "Move workspace to monitor"),
