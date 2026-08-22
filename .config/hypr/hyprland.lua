@@ -275,6 +275,12 @@ hl.bind(mainMod .. " + j",     hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + k",     hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + l",     hl.dsp.focus({ direction = "right" }))
 
+-- Focus monitor (switch display). Dedicated monitor switching, independent of
+-- the Super + [/] column navigation above, which falls through to the next
+-- monitor at the layout edge (awkward in scrolling view).
+hl.bind(mainMod .. " + ALT + bracketleft",  hl.dsp.focus({ monitor = "l" }))
+hl.bind(mainMod .. " + ALT + bracketright", hl.dsp.focus({ monitor = "r" }))
+
 -- Workspaces 1-10
 for i = 1, 10 do
     local key = i % 10
