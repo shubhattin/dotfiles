@@ -73,8 +73,12 @@ local function render()
 				bind_row("Super + [ / ]", "Scroll strip left / right (columns)"),
 				bind_row("Super + Shift + [ / ]", "Swap column left / right"),
 				bind_row("Super + Ctrl + [ / ]", "Cycle column width presets"),
+				bind_row("Super + Ctrl + Shift + [ / ]", "Fine resize column ±5%"),
 				bind_row("Super + Ctrl + Enter", "Promote window to its own column"),
+				bind_row("Super + Alt + H / L", "Join column (consume) / split (expel)"),
 				bind_row("Super + Ctrl + .", "Fit active column into view"),
+				bind_row("Super + Ctrl + ,", "Fit visible columns into view"),
+				bind_row("Super + Ctrl + Shift + .", "Expand column to free space"),
 			}),
 
 			section("Dwindle helpers", {
@@ -104,7 +108,7 @@ local function render()
 			}),
 
 			section("Focus, move & resize", {
-				bind_row("Super + ←↑↓→ / JKL", "Move focus"),
+				bind_row("Super + ←↑↓→ / HJKL", "Move focus"),
 				bind_row("Super + Alt + [ / ]", "Focus monitor left / right"),
 				bind_row("Super + Shift + ←↑↓→ / HJKL", "Resize active window"),
 				bind_row("Super + LMB / RMB", "Move / resize with mouse"),

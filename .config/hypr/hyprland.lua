@@ -264,14 +264,21 @@ hl.bind(mainMod .. " + SHIFT + bracketleft", hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + CTRL + bracketleft", hl.dsp.layout("colresize -conf"))
 hl.bind(mainMod .. " + CTRL + bracketright", hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + CTRL + SHIFT + bracketleft", hl.dsp.layout("colresize -0.05"), { repeating = true })
+hl.bind(mainMod .. " + CTRL + SHIFT + bracketright", hl.dsp.layout("colresize +0.05"), { repeating = true })
 hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.layout("promote")) -- window → own column
+hl.bind(mainMod .. " + ALT + h", hl.dsp.layout("consume")) -- join previous column
+hl.bind(mainMod .. " + ALT + l", hl.dsp.layout("expel")) -- split to own column
 hl.bind(mainMod .. " + CTRL + period", hl.dsp.layout("fit active"))
+hl.bind(mainMod .. " + CTRL + comma", hl.dsp.layout("fit visible"))
+hl.bind(mainMod .. " + CTRL + SHIFT + period", hl.dsp.layout("fit expand"))
 
 -- Move focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))

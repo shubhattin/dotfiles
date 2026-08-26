@@ -9,6 +9,12 @@
 Skill path: `.agents/skills/sync-noctalia/SKILL.md`  
 Also linked from `~/.agents/skills/sync-noctalia` for personal agent discovery.
 
+## New file addition under this repo 
+
+- We are using GNU Stow to sync the configs to the `~`.
+- So after adding any new files make sure to run `stow .` here.
+- Files that are not supposed to be symlinked go in `.stow-local-ignore`.
+
 ## Noctalia config model
 
 - Declarative config: `~/.config/noctalia` (symlink into this repo).
