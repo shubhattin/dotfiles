@@ -3,5 +3,8 @@
     "view": "auto",
     "wrap": "word",
     "single": true
+  },
+  "theme": {
+    "name": "opencode"
   }
 }

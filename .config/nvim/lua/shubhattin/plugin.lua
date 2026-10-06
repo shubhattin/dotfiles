@@ -38,7 +38,7 @@ local function use(plugin)
 end
 
 if true then                 -- VSCode Inclusive Plugins
-    use("ggandor/leap.nvim") -- leaping tool
+    use({ url = "https://codeberg.org/andyg/leap.nvim", name = "leap.nvim" }) -- leaping tool (moved from ggandor/leap.nvim)
 end
 
 if not vim.g.vscode then
@@ -75,10 +75,10 @@ if not vim.g.vscode then
     use({
         "andrewferrier/wrapping.nvim",
         config = function()
-            -- require("wrapping").setup()
+            require("wrapping").setup()
         end
     }) -- wrapping lines (eg for rapping markdown, text files)
-    -- use [ow for soft wrap and ]ow for hard wrap
+    -- [ow for soft wrap (wrap on), ]ow for hard wrap (wrap off), yow to toggle
 
     -- LSP, Linters, Formatter
     use({

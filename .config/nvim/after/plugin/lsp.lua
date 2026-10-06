@@ -51,24 +51,21 @@ if mason_ok then
 end
 
 local mlsp_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if mlsp_ok then
-    mason_lspconfig.setup({
-        ensure_installed = {
-            "lua_ls",
-            "clangd", -- C/C++ (not C#; csharp_ls handles C#)
-            "csharp_ls",
-            "ts_ls",
-            "eslint",
-            "rust_analyzer",
-            "svelte",
-            "tailwindcss",
-            "pylsp",
-            -- Java handled via nvim-jdtls when present; keep installed for bits
-            "jdtls"
-        },
-        automatic_installation = true
-    })
-end
+-- Servers to auto-install. Actual mason-lspconfig.setup() call is further
+-- below, after vim.lsp.config() definitions, so custom configs apply.
+local mason_servers = {
+    "lua_ls",
+    "clangd", -- C/C++ (not C#; csharp_ls handles C#)
+    "csharp_ls",
+    "ts_ls",
+    "eslint",
+    "rust_analyzer",
+    "svelte",
+    "tailwindcss",
+    "pylsp",
+    -- Java handled via nvim-jdtls when present; keep installed for bits
+    "jdtls"
+}
 
 -- nvim-cmp setup
 local cmp_ok, cmp = pcall(require, "cmp")
@@ -162,74 +159,95 @@ if cmp_caps_ok then
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
--- Configure servers via mason-lspconfig handlers
-local lspconfig = require("lspconfig")
-if mlsp_ok then
-    mason_lspconfig.setup_handlers({
-        function(server_name)
-            if vim.g.lsp_disabled then
-                return
-            end
-            local opts = {
-                capabilities = vim.tbl_deep_extend("force", {}, capabilities)
+-- Configure servers via vim.lsp.config (Neovim 0.11+ native API).
+-- mason-lspconfig v2 removed setup_handlers(); it now auto-enables
+-- installed servers via vim.lsp.enable().
+if not vim.g.lsp_disabled then
+    vim.lsp.config("lua_ls", {
+        capabilities = vim.tbl_deep_extend("force", {}, capabilities),
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = {"vim"}
+                },
+                workspace = {
+                    checkThirdParty = false
+                },
+                telemetry = {
+                    enable = false
+                }
             }
-            if server_name == "lua_ls" then
-                opts.settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = {"vim"}
-                        },
-                        workspace = {
-                            checkThirdParty = false
-                        },
-                        telemetry = {
-                            enable = false
-                        }
-                    }
-                }
-            elseif server_name == "clangd" then
-                opts.cmd = {
-                    "clangd", "--background-index", "--clang-tidy",
-                    "--fallback-style={BasedOnStyle: LLVM, IndentWidth: 2, TabWidth: 2, UseTab: Never}"
-                }
-                opts.capabilities.offsetEncoding = {"utf-16"}
-            elseif server_name == "csharp_ls" then
-                -- Loose .cs files (no .csproj/.sln) still need a root or the server never attaches
-                local util = require("lspconfig.util")
-                opts.root_dir = function(fname)
-                    return util.root_pattern("*.sln", "*.csproj")(fname)
-                        or util.find_git_ancestor(fname)
-                        or vim.fs.dirname(fname)
-                end
-                opts.single_file_support = true
-                opts.init_options = {
-                    AutomaticWorkspaceInit = true
-                }
-            elseif server_name == "pylsp" then
-                opts.settings = {
-                    pylsp = {
-                        plugins = {
-                            pyflakes = {
-                                enabled = true
-                            },
-                            pycodestyle = {
-                                enabled = false
-                            },
-                            pylint = {
-                                enabled = true
-                            },
-                            jedi_completion = {
-                                fuzzy = true
-                            }
-                        }
-                    }
-                }
-            elseif server_name == "jdtls" then
-                -- Handled by nvim-jdtls in ftplugin/java.lua when available
-                return
+        }
+    })
+    vim.lsp.config("clangd", {
+        capabilities = vim.tbl_deep_extend("force", {}, capabilities, {
+            offsetEncoding = {"utf-16"}
+        }),
+        cmd = {
+            "clangd", "--background-index", "--clang-tidy",
+            "--fallback-style={BasedOnStyle: LLVM, IndentWidth: 2, TabWidth: 2, UseTab: Never}"
+        }
+    })
+    do
+        -- Loose .cs files (no .csproj/.sln) still need a root or the server never attaches
+        local util_ok, util = pcall(require, "lspconfig.util")
+        local root_dir
+        if util_ok then
+            root_dir = function(fname)
+                return util.root_pattern("*.sln", "*.csproj")(fname)
+                    or util.find_git_ancestor(fname)
+                    or vim.fs.dirname(fname)
             end
-            lspconfig[server_name].setup(opts)
+        else
+            root_dir = function(fname)
+                return vim.fs.dirname(fname)
+            end
         end
+        vim.lsp.config("csharp_ls", {
+            capabilities = vim.tbl_deep_extend("force", {}, capabilities),
+            root_dir = root_dir,
+            single_file_support = true,
+            init_options = {
+                AutomaticWorkspaceInit = true
+            }
+        })
+    end
+    vim.lsp.config("pylsp", {
+        capabilities = vim.tbl_deep_extend("force", {}, capabilities),
+        settings = {
+            pylsp = {
+                plugins = {
+                    pyflakes = {
+                        enabled = true
+                    },
+                    pycodestyle = {
+                        enabled = false
+                    },
+                    pylint = {
+                        enabled = true
+                    },
+                    jedi_completion = {
+                        fuzzy = true
+                    }
+                }
+            }
+        }
+    })
+    -- Defaults for the rest (ts_ls, eslint, rust_analyzer, svelte, tailwindcss)
+    vim.lsp.config("*", {
+        capabilities = vim.tbl_deep_extend("force", {}, capabilities)
+    })
+end
+
+if mlsp_ok then
+    mason_lspconfig.setup({
+        ensure_installed = mason_servers,
+        automatic_enable = {
+            exclude = {
+                -- Handled by nvim-jdtls in ftplugin/java.lua when available
+                "jdtls"
+            }
+        }
     })
 end
 

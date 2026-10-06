@@ -1,3 +1,6 @@
 -- This will also be loaded in vsocde
 --
-require("leap").add_default_mappings()
+local ok, leap = pcall(require, "leap")
+if ok then
+    leap.add_default_mappings()
+end
