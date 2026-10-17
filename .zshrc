@@ -66,6 +66,8 @@ alias neofetch=fastfetch
 alias ghcs="gh copilot suggest"
 alias ghce="gh copilot explain"
 alias lg="lazygit"
+alias cc="claude"
+alias op="opencode"
 
 export EDITOR="nvim"
 
