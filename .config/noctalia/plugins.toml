@@ -1,6 +1,8 @@
 # Local and third-party Noctalia plugins.
 
 [plugins]
+# "all" | "official" | "none" — boolean is deprecated in Noctalia v5.
+auto_update = "all"
 enabled = [
   "shubhattin/fullscreen_indicator",
   "shubhattin/keybind_help",

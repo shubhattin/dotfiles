@@ -2,7 +2,6 @@
 enabled = false
 position = "bottom"
 active_monitor_only = false
-monitors = []
 icon_size = 44
 main_axis_padding = 14
 cross_axis_padding = 8

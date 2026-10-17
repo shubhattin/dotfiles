@@ -43,6 +43,8 @@ polkit_position = "center"
 floating_offset = 8
 
 [shell.launcher]
+# "simple" = search field + results only (no profile/username toolbar).
+layout = "simple"
 app_grid = false
 categories = true
 compact = false
