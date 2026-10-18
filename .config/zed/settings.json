@@ -1,0 +1,101 @@
+{
+  // VSCode-like left file explorer
+  "vim_mode": true,
+  "base_keymap": "VSCode",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  // Same as VSCode: "One Dark Pro Darker" (requires "One Dark Pro Enhanced" Zed extension)
+  // Same as VSCode: "vscode-icons" (requires "VSCode Icons" Zed extension, already installed)
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark Pro Darker"
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "VSCode Icons for Zed (Light)",
+    "dark": "VSCode Icons for Zed (Dark)"
+  },
+  // VSCode-like save behavior (editor.formatOnSave)
+  "format_on_save": "on",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "project_panel": {
+    "dock": "left",
+    "default_width": 300,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true,
+    "git_status": true,
+    "show_diagnostics": "all"
+  },
+  "lsp": {
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "run": "onSave"
+        }
+      }
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "TypeScript": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "TSX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "Python": {
+      "language_servers": ["ruff", "pyright"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    }
+  }
+}
