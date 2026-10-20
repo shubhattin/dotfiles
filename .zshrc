@@ -125,6 +125,17 @@ csr () {
    fi
 }
 
+# Zed
+export ZED_PATH="zeditor"
+zed () {
+  if (( $# ))
+    then
+        $ZED_PATH $@
+    else
+        $ZED_PATH .
+   fi
+}
+
 
 # .NET tools
 if [ -d "$HOME/.dotnet/tools" ]; then

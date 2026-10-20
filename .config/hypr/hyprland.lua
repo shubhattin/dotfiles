@@ -358,7 +358,7 @@ hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd(noctalia .. " config-reload"))
 -- App shortcuts
 hl.bind("CTRL + ALT + F2", hl.dsp.exec_cmd("zen-browser"))
 hl.bind("CTRL + ALT + F3", hl.dsp.exec_cmd("zen-browser --private-window"))
-hl.bind("SHIFT + ALT + V", hl.dsp.exec_cmd("cursor"))
+hl.bind("SHIFT + ALT + V", hl.dsp.exec_cmd("zeditor"))
 hl.bind("SHIFT + ALT + C", hl.dsp.exec_cmd("code"))
 hl.bind("CTRL + ALT + B", hl.dsp.exec_cmd("helium-browser --password-store=basic"))
 hl.bind("CTRL + ALT + I", hl.dsp.exec_cmd("brave --password-store=basic"))
