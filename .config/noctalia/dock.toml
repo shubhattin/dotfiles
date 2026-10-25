@@ -30,7 +30,6 @@ pinned = [
   "zen",
   "com.mitchellh.ghostty",
   "org.kde.dolphin",
-  "cursor",
   "code",
   "brave-browser",
 ]

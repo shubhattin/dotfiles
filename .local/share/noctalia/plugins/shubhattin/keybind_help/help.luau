@@ -141,7 +141,8 @@ local function render()
 
 			section("Quick apps", {
 				bind_row("Ctrl + Alt + F2 / F3", "Zen / Zen private"),
-				bind_row("Shift + Alt + V / C", "Zed / VS Code"),
+				bind_row("Shift + Alt + V / C", "VS Code / Zed"),
+				bind_row("Ctrl + Alt + T", "T3Code"),
 				bind_row("Ctrl + Alt + B / O", "Helium / Helium incognito"),
 				bind_row("Ctrl + Alt + I", "Brave"),
 			}),

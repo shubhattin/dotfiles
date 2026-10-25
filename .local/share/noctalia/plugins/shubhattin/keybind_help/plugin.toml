@@ -1,6 +1,6 @@
 id = "shubhattin/keybind_help"
 name = "Keybind Help"
-version = "1.0.5"
+version = "1.0.8"
 plugin_api = 9
 min_noctalia = "5.0.0"
 author = "shubhattin"

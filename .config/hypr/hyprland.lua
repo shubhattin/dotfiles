@@ -9,39 +9,37 @@
 ------------------
 
 hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
 })
 
 hl.monitor({
-    output   = "eDP-1",
-    mode     = "preferred",
-    position = "auto",
-    scale    = 1.25,
+	output = "eDP-1",
+	mode = "preferred",
+	position = "auto",
+	scale = 1.25,
 })
 
 hl.monitor({
-    output   = "DP-1",
-    mode     = "1920x1080@75",
-    position = "auto-left",
-    scale    = 1,
+	output = "DP-1",
+	mode = "1920x1080@75",
+	position = "auto-left",
+	scale = 1,
 })
-
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal     = "ghostty"
-local terminal1    = "alacritty"
-local fileManager  = "dolphin"
+local terminal = "ghostty"
+local terminal1 = "alacritty"
+local fileManager = "dolphin"
 local fileManager1 = "nautilus"
-local menu         = "noctalia msg panel-toggle launcher"
-local noctalia     = "noctalia msg"
-local mainMod      = "SUPER"
-
+local menu = "noctalia msg panel-toggle launcher"
+local noctalia = "noctalia msg"
+local mainMod = "SUPER"
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -60,88 +58,87 @@ hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("XDG_MENU_PREFIX", "arch-")
 
-
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
 
 hl.config({
-    xwayland = {
-        force_zero_scaling = true,
-    },
+	xwayland = {
+		force_zero_scaling = true,
+	},
 
-    general = {
-        gaps_in          = 2,
-        gaps_out         = 6,
-        border_size      = 1,
-        col              = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
-        },
-        resize_on_border = false,
-        allow_tearing    = false,
-        -- layout           = "dwindle",
-        layout           = "scrolling",
-    },
+	general = {
+		gaps_in = 2,
+		gaps_out = 6,
+		border_size = 1,
+		col = {
+			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+			inactive_border = "rgba(595959aa)",
+		},
+		resize_on_border = false,
+		allow_tearing = false,
+		-- layout           = "dwindle",
+		layout = "scrolling",
+	},
 
-    decoration = {
-        rounding         = 10,
-        rounding_power   = 2,
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
-        shadow           = {
-            enabled      = true,
-            range        = 4,
-            render_power = 3,
-            color        = 0xee1a1a1a,
-        },
-        blur             = {
-            enabled  = true,
-            size     = 3,
-            passes   = 1,
-            vibrancy = 0.1696,
-        },
-    },
+	decoration = {
+		rounding = 10,
+		rounding_power = 2,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
+		shadow = {
+			enabled = true,
+			range = 4,
+			render_power = 3,
+			color = 0xee1a1a1a,
+		},
+		blur = {
+			enabled = true,
+			size = 3,
+			passes = 1,
+			vibrancy = 0.1696,
+		},
+	},
 
-    animations = {
-        enabled = true, -- was: "yes, please :)"
-    },
+	animations = {
+		enabled = true, -- was: "yes, please :)"
+	},
 
-    dwindle = {
-        preserve_split = true,
-    },
+	dwindle = {
+		preserve_split = true,
+	},
 
-    master = {
-        new_status = "master",
-    },
+	master = {
+		new_status = "master",
+	},
 
-    -- Niri-like horizontal strip (enable via layout switch binds below)
-    scrolling = {
-        fullscreen_on_one_column = true,
-        column_width             = 0.5,
-        follow_focus             = true,
-        follow_min_visible       = 0.4,
-        explicit_column_widths   = "0.333, 0.5, 0.667, 1.0",
-        wrap_focus               = true,
-    },
+	-- Niri-like horizontal strip (enable via layout switch binds below)
+	scrolling = {
+		fullscreen_on_one_column = true,
+		column_width = 0.5,
+		follow_focus = true,
+		follow_min_visible = 0.4,
+		explicit_column_widths = "0.333, 0.5, 0.667, 1.0",
+		wrap_focus = true,
+	},
 
-    misc = {
-        force_default_wallpaper = 0,
-        disable_hyprland_logo   = true,
-    },
+	misc = {
+		force_default_wallpaper = 0,
+		disable_hyprland_logo = true,
+	},
 
-    input = {
-        kb_layout    = "us",
-        kb_variant   = "",
-        kb_model     = "",
-        kb_options   = "",
-        kb_rules     = "",
-        follow_mouse = 1,
-        sensitivity  = 0,
-        touchpad     = {
-            natural_scroll = true,
-        },
-    },
+	input = {
+		kb_layout = "us",
+		kb_variant = "",
+		kb_model = "",
+		kb_options = "",
+		kb_rules = "",
+		follow_mouse = 1,
+		sensitivity = 0,
+		touchpad = {
+			natural_scroll = true,
+		},
+	},
 })
 
 -- Curves + animations (hyprconf2lua dropped these)
@@ -171,38 +168,37 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 
 -- Noctalia layer surfaces
 hl.layer_rule({
-    name         = "noctalia-surfaces",
-    match        = {
-        namespace = "^(noctalia-(bar-.+|notification|dock|panel|attached-panel|osd))$",
-    },
-    blur         = true,
-    blur_popups  = true,
-    no_anim      = true,
-    ignore_alpha = 0.5,
+	name = "noctalia-surfaces",
+	match = {
+		namespace = "^(noctalia-(bar-.+|notification|dock|panel|attached-panel|osd))$",
+	},
+	blur = true,
+	blur_popups = true,
+	no_anim = true,
+	ignore_alpha = 0.5,
 })
 
 hl.window_rule({
-    name   = "noctalia-settings",
-    match  = {
-        class = "^(dev.noctalia.Noctalia)$",
-    },
-    float  = true,
-    size   = { 1080, 920 },
-    center = true,
+	name = "noctalia-settings",
+	match = {
+		class = "^(dev.noctalia.Noctalia)$",
+	},
+	float = true,
+	size = { 1080, 920 },
+	center = true,
 })
 
 hl.gesture({
-    fingers   = 3,
-    direction = "horizontal",
-    action    = "workspace",
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
 })
 
 -- Example per-device config (unused unless device exists)
 hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
+	name = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
-
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -227,34 +223,34 @@ hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit")) -- dwindle only
 local LAYOUTS = { "dwindle", "master", "scrolling" }
 
 local function set_layout(name)
-    hl.config({ general = { layout = name } })
-    hl.notification.create({ text = "Layout: " .. name, timeout = 1800 })
+	hl.config({ general = { layout = name } })
+	hl.notification.create({ text = "Layout: " .. name, timeout = 1800 })
 end
 
 local function cycle_layout(step)
-    local current = hl.get_config("general.layout") or "dwindle"
-    local idx = 1
-    for i, name in ipairs(LAYOUTS) do
-        if name == current then
-            idx = i
-            break
-        end
-    end
-    idx = ((idx - 1 + step) % #LAYOUTS) + 1
-    set_layout(LAYOUTS[idx])
+	local current = hl.get_config("general.layout") or "dwindle"
+	local idx = 1
+	for i, name in ipairs(LAYOUTS) do
+		if name == current then
+			idx = i
+			break
+		end
+	end
+	idx = ((idx - 1 + step) % #LAYOUTS) + 1
+	set_layout(LAYOUTS[idx])
 end
 
 hl.bind(mainMod .. " + CTRL + Y", function()
-    cycle_layout(1)
+	cycle_layout(1)
 end)
 hl.bind(mainMod .. " + CTRL + 1", function()
-    set_layout("dwindle")
+	set_layout("dwindle")
 end)
 hl.bind(mainMod .. " + CTRL + 2", function()
-    set_layout("master")
+	set_layout("master")
 end)
 hl.bind(mainMod .. " + CTRL + 3", function()
-    set_layout("scrolling")
+	set_layout("scrolling")
 end)
 
 -- Scrolling layout (Niri-like) — useful when layout = scrolling
@@ -291,10 +287,10 @@ hl.bind(mainMod .. " + ALT + bracketright", hl.dsp.focus({ monitor = "r" }))
 
 -- Workspaces 1-10
 for i = 1, 10 do
-    local key = i % 10
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-    hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+	local key = i % 10
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- Resize panes (was resizeactive / binde)
@@ -329,8 +325,11 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctalia .. " volume-down 3"), {
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(noctalia .. " volume-mute"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(noctalia .. " mic-mute"), { locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1"),
-    { locked = true, repeating = true })
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1"),
+	{ locked = true, repeating = true }
+)
 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
@@ -358,8 +357,9 @@ hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd(noctalia .. " config-reload"))
 -- App shortcuts
 hl.bind("CTRL + ALT + F2", hl.dsp.exec_cmd("zen-browser"))
 hl.bind("CTRL + ALT + F3", hl.dsp.exec_cmd("zen-browser --private-window"))
-hl.bind("SHIFT + ALT + V", hl.dsp.exec_cmd("zeditor"))
-hl.bind("SHIFT + ALT + C", hl.dsp.exec_cmd("code"))
+hl.bind("SHIFT + ALT + V", hl.dsp.exec_cmd("code"))
+hl.bind("SHIFT + ALT + C", hl.dsp.exec_cmd("zeditor"))
+hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("t3code"))
 hl.bind("CTRL + ALT + B", hl.dsp.exec_cmd("helium-browser --password-store=basic"))
 hl.bind("CTRL + ALT + I", hl.dsp.exec_cmd("brave --password-store=basic"))
 hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd("helium-browser --password-store=basic --incognito"))
@@ -380,19 +380,23 @@ hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -m output"))
 hl.bind(mainMod .. " + CTRL + Print", hl.dsp.exec_cmd("hyprshot -m window"))
 
-
 -------------------
 ---- AUTOSTART ----
 -------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("hyprctl setcursor catppuccin-mocha-dark-cursors 28")
-    hl.exec_cmd("bash ~/.config/hypr/noctalia-wrap.sh")
-    hl.exec_cmd("bash ~/.config/hypr/start-portals.sh")
-    hl.exec_cmd(
-    "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP")
-    hl.exec_cmd(
-    "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP")
-    hl.exec_cmd("fcitx5 -d")
-    hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
+	hl.exec_cmd("hyprctl setcursor catppuccin-mocha-dark-cursors 28")
+	hl.exec_cmd("bash ~/.config/hypr/noctalia-wrap.sh")
+	hl.exec_cmd("bash ~/.config/hypr/start-portals.sh")
+	hl.exec_cmd(
+		"dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
+	)
+	hl.exec_cmd(
+		"systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
+	)
+	hl.exec_cmd("fcitx5 -d")
+	hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
 end)
+
+--- t3 code shortcut
+hl.bind("CTRL + SHIFT + 2", hl.dsp.global("com.t3tools.T3Code:capture-window"))

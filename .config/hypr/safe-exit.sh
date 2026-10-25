@@ -3,7 +3,7 @@
 # Graceful Hyprland logout script
 # - Politely asks all visible clients to close
 # - Gives them a moment to shut down cleanly
-# - Force-closes a few known problematic apps (like Cursor) if still running
+# - Force-closes any listed problematic apps if still running
 # - Finally exits Hyprland
 
 set -euo pipefail
@@ -14,7 +14,6 @@ GRACE_PERIOD="${GRACE_PERIOD:-3}"
 # List of extra apps to make sure are dead before exiting Hyprland.
 # Add / remove names here as needed.
 APPS_TO_FORCE_CLOSE=(
-  cursor
 )
 
 echo "[safe-exit] Requesting all Hyprland clients to close..."
