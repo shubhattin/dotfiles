@@ -5,5 +5,11 @@
   },
   "permission": {
     "webfetch": "allow"
+  },
+  "mcp": {
+    "posthog": {
+      "type": "remote",
+      "url": "https://mcp.posthog.com/mcp"
+    }
   }
 }

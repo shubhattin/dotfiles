@@ -3,5 +3,17 @@
     "commit": "",
     "pr": "",
     "sessionUrl": false
-  }
+  },
+  "enabledPlugins": {
+    "posthog@posthog": true
+  },
+  "extraKnownMarketplaces": {
+    "posthog": {
+      "source": {
+        "source": "github",
+        "repo": "PostHog/ai-plugin"
+      }
+    }
+  },
+  "theme": "dark"
 }
