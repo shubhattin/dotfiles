@@ -324,10 +324,10 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noctalia .. " volume-up 3"), { l
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctalia .. " volume-down 3"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(noctalia .. " volume-mute"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(noctalia .. " mic-mute"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1 3"), { locked = true, repeating = true })
 hl.bind(
 	"XF86MonBrightnessDown",
-	hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1"),
+	hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1 3"),
 	{ locked = true, repeating = true }
 )
 
@@ -337,14 +337,12 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Laptop / external brightness
-hl.bind("ALT + F10", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1"), { locked = true, repeating = true })
-hl.bind("ALT + F9", hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1"), { locked = true, repeating = true })
-hl.bind("ALT_R + F10", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1"), { locked = true, repeating = true })
-hl.bind("ALT_R + F9", hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1"), { locked = true, repeating = true })
+-- NOTE: ALT covers both left/right Alt (same modmask 8) — do NOT add ALT_R
+-- duplicates or each press fires twice (3+3=6%).
+hl.bind("ALT + F10", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1 3"), { locked = true, repeating = true })
+hl.bind("ALT + F9", hl.dsp.exec_cmd(noctalia .. " brightness-down eDP-1 3"), { locked = true, repeating = true })
 hl.bind("ALT + F12", hl.dsp.exec_cmd("~/.local/bin/daitika up 8 --external"), { locked = true, repeating = true })
 hl.bind("ALT + F11", hl.dsp.exec_cmd("~/.local/bin/daitika down 8 --external"), { locked = true, repeating = true })
-hl.bind("ALT_R + F12", hl.dsp.exec_cmd("~/.local/bin/daitika up 8 --external"), { locked = true, repeating = true })
-hl.bind("ALT_R + F11", hl.dsp.exec_cmd("~/.local/bin/daitika down 8 --external"), { locked = true, repeating = true })
 
 -- Fullscreen (SUPER_SHIFT-style mods → SUPER + SHIFT)
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())

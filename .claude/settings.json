@@ -15,5 +15,6 @@
       }
     }
   },
-  "theme": "dark"
+  "theme": "dark",
+  "model": "opus"
 }
