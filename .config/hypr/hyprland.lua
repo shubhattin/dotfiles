@@ -398,3 +398,9 @@ end)
 
 --- t3 code shortcut
 hl.bind("CTRL + SHIFT + 2", hl.dsp.global("com.t3tools.T3Code:capture-window"))
+
+--- Hex dictation (GlobalShortcuts portal; `global` forwards press AND release, so hold-to-dictate works)
+--- IDs embed the key Hex was set to — if you change a shortcut in Hex, check `hyprctl globalshortcuts` and update here.
+hl.bind("ALT + SPACE", hl.dsp.global("anomaly.hex:dictation-ALT-space"))
+hl.bind("CTRL + ALT + V", hl.dsp.global("anomaly.hex:paste-last-CTRL-ALT-v"))
+hl.bind("F9", hl.dsp.global("anomaly.hex:capture-F9"))
