@@ -57,6 +57,10 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("XDG_MENU_PREFIX", "arch-")
+-- Unsandboxed GTK3 apps (Lutris, etc.) only ask xdg-desktop-portal for file
+-- dialogs when this is set; otherwise they draw GTK's own picker and the
+-- FileChooser=kde setting in hyprland-portals.conf is never consulted.
+hl.env("GTK_USE_PORTAL", "1")
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -199,6 +203,17 @@ hl.window_rule({
 	center = true,
 })
 
+-- Wine/Proton (Lutris, umu) floating windows: Wine picks its own coordinates and
+-- with DP-1 left of eDP-1 (negative x) they can land off-screen. Center them.
+hl.window_rule({
+	name = "center-proton-floating",
+	match = {
+		class = "^(steam_app_.*)$",
+		float = true,
+	},
+	center = true,
+})
+
 hl.gesture({
 	fingers = 3,
 	direction = "horizontal",
@@ -331,8 +346,8 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia — Noctalia OSD (bindel → locked + repeating)
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noctalia .. " volume-up 3"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctalia .. " volume-down 3"), { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noctalia .. " volume-up 5"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctalia .. " volume-down 5"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(noctalia .. " volume-mute"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(noctalia .. " mic-mute"), { locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctalia .. " brightness-up eDP-1 3"), { locked = true, repeating = true })
