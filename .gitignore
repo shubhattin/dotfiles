@@ -1,1 +1,5 @@
 .config/my_config/my_env.sh
+# ~/.claude is stowed from here: only settings.json is config; the rest is
+# live state (credentials, sessions, transcripts) and must never be committed.
+.claude/*
+!.claude/settings.json
