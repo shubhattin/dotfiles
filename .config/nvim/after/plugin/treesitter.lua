@@ -43,3 +43,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })
+
+-- `after/plugin` files load after the initial file's FileType event. Start
+-- highlighting for buffers that were already open when this configuration ran.
+for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+  if vim.api.nvim_buf_is_loaded(buffer) and vim.bo[buffer].filetype ~= "" then
+    pcall(vim.treesitter.start, buffer)
+  end
+end

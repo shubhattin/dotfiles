@@ -4,6 +4,7 @@
     "pr": "",
     "sessionUrl": false
   },
+  "model": "opus",
   "enabledPlugins": {
     "posthog@posthog": true
   },
@@ -15,6 +16,10 @@
       }
     }
   },
-  "theme": "dark",
-  "model": "opus"
+  "modelSettings": {
+    "claude-fable-5-2": {
+      "effortLevel": "high"
+    }
+  },
+  "theme": "dark"
 }

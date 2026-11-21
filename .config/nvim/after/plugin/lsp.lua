@@ -194,6 +194,11 @@ if not vim.g.lsp_disabled then
         local root_dir
         if util_ok then
             root_dir = function(fname)
+                -- Neovim 0.12 passes a buffer number to native LSP root_dir.
+                -- lspconfig's path helpers require a file-name string.
+                if type(fname) == "number" then
+                    fname = vim.api.nvim_buf_get_name(fname)
+                end
                 return util.root_pattern("*.sln", "*.csproj")(fname)
                     or util.find_git_ancestor(fname)
                     or vim.fs.dirname(fname)
