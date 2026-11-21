@@ -188,6 +188,17 @@ hl.window_rule({
 	center = true,
 })
 
+-- KDE portal file picker (FileChooser=kde in xdg-desktop-portal/hyprland-portals.conf)
+hl.window_rule({
+	name = "portal-file-picker",
+	match = {
+		class = "^(org.freedesktop.impl.portal.desktop.kde)$",
+	},
+	float = true,
+	size = { 1100, 720 },
+	center = true,
+})
+
 hl.gesture({
 	fingers = 3,
 	direction = "horizontal",
@@ -358,9 +369,9 @@ hl.bind("CTRL + ALT + F3", hl.dsp.exec_cmd("zen-browser --private-window"))
 hl.bind("SHIFT + ALT + V", hl.dsp.exec_cmd("code"))
 hl.bind("SHIFT + ALT + C", hl.dsp.exec_cmd("zeditor"))
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("t3code"))
-hl.bind("CTRL + ALT + B", hl.dsp.exec_cmd("helium-browser --password-store=basic"))
-hl.bind("CTRL + ALT + I", hl.dsp.exec_cmd("brave --password-store=basic"))
-hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd("helium-browser --password-store=basic --incognito"))
+hl.bind("CTRL + ALT + B", hl.dsp.exec_cmd("helium-browser"))
+hl.bind("CTRL + ALT + I", hl.dsp.exec_cmd("brave"))
+hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd("helium-browser --incognito"))
 
 -- Noctalia panels / session
 hl.bind("SUPER + V", hl.dsp.exec_cmd(noctalia .. " panel-toggle clipboard"))
@@ -374,9 +385,9 @@ hl.bind("CTRL + ALT + DELETE", hl.dsp.exec_cmd(noctalia .. " panel-toggle sessio
 hl.bind(mainMod .. " + SHIFT + F7", hl.dsp.exec_cmd(noctalia .. " session lock-and-suspend"), { locked = true })
 
 -- Screenshots
-hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"))
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -m output"))
-hl.bind(mainMod .. " + CTRL + Print", hl.dsp.exec_cmd("hyprshot -m window"))
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"), { dont_inhibit = true }) -- works over the VM too
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -m output"), { dont_inhibit = true })
+hl.bind(mainMod .. " + CTRL + Print", hl.dsp.exec_cmd("hyprshot -m window"), { dont_inhibit = true })
 
 -------------------
 ---- AUTOSTART ----
